@@ -1,43 +1,27 @@
 <template>
 <div class="app">
-  <p>{{ name }} -- {{ age }}</p>
-  <button @click="changeName('Sherlock Juices')">change name</button>
-  <button @click="changeAge(10)">change age</button>
+  <p>{{ juices[0].name}}</p>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, ref, toRefs} from 'vue';
+import Juice from './types/Juice';
 
 export default defineComponent({
   name: 'App',
   components: { },
   setup() {
-    // const state = reactive({
-    //   name: 'Sherlock',
-    //   age: 19 as string | number
-    // })
+    const juices = ref<Juice[]>([
+      { name: 'Morango com kiwi', flavors: ['morango', 'kiwi', 'limao'], price: 20, id: 1 },
+      { name: 'Abacaxi com limao', flavors: ['abacaxi', 'limao', 'ice'], price: 20, id: 2 },
+      { name: 'Uva ice', flavors: ['uva', 'cereja', 'ice'], price: 20, id: 3 }
+    ])
 
-    // state.name = 'nETIN';
-    // state.age = 800;
-    // return { ...toRefs(state)}
-
-    const name = ref('netin')
-    const age = ref<number | string>(100)
-
-    age.value = 99
-
-    return {name, age} 
+    return { juices }
   },
   methods: {
-    changeName(name: string){
-      this.name = name;
-      return name;
-    },
-    changeAge(age: number){
-      this.age = age;
-      return age;
-    }
+
   }
 });
 </script>

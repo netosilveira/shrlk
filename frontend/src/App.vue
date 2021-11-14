@@ -1,30 +1,46 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+<div class="app">
+  <p>{{ name }} -- {{ age }}</p>
+  <button @click="changeName('Sherlock Juices')">change name</button>
+  <button @click="changeAge(10)">change age</button>
   </div>
-  <router-view/>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { defineComponent, reactive, ref, toRefs} from 'vue';
 
-#nav {
-  padding: 30px;
+export default defineComponent({
+  name: 'App',
+  components: { },
+  setup() {
+    // const state = reactive({
+    //   name: 'Sherlock',
+    //   age: 19 as string | number
+    // })
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+    // state.name = 'nETIN';
+    // state.age = 800;
+    // return { ...toRefs(state)}
 
-    &.router-link-exact-active {
-      color: #42b983;
+    const name = ref('netin')
+    const age = ref<number | string>(100)
+
+    age.value = 99
+
+    return {name, age} 
+  },
+  methods: {
+    changeName(name: string){
+      this.name = name;
+      return name;
+    },
+    changeAge(age: number){
+      this.age = age;
+      return age;
     }
   }
-}
+});
+</script>
+
+<style>
 </style>

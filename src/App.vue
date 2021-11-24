@@ -1,16 +1,16 @@
 <template>
 <div class="app">
-  <p v-for="juice in juices" :key="juice.id">{{ juice.name }}  {{ juice.price }}</p>
+  <JuiceList :juices="juices" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, ref, toRefs} from 'vue';
 import Juice from './types/Juice';
-
+import JuiceList from './components/JuicesList.vue'
 export default defineComponent({
   name: 'App',
-  components: { },
+  components: { JuiceList },
   setup() {
     const juices = ref<Juice[]>([
       { name: 'Morango com kiwi', flavors: ['morango', 'kiwi', 'limao'], price: 20, id: 1 },

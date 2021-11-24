@@ -1,5 +1,6 @@
 <template>
     <div class="juice-list">
+        <p>Ordered by {{ order }}</p>
         <ul>
             <li v-for="juice in juices" :key="juice.id">
             <h2>{{ juice.name }}</h2>
@@ -13,12 +14,17 @@
 <script lang="ts">
 import { defineComponent, PropType} from 'vue'
 import Juice from '@/types/Juice'
+import OrderTerm from '@/types/OrderTerm'
 
 export default defineComponent({
     props: {
         juices: {
             required: true,
             type: Array as PropType<Juice[]>
+        },
+        order: {
+            required: true,
+            type: String as PropType<OrderTerm>
         }
     }
 })
@@ -26,7 +32,7 @@ export default defineComponent({
 
 <style scoped>
 .juice-list{
-    max-width: 100vh;
+    max-width: 130vh;
     margin: 40px auto;
 }
 
@@ -40,8 +46,6 @@ export default defineComponent({
     padding: 16px;
     margin: 16px 0 0 0;
     border-radius: 7px;
-    -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 0px 0px 9px 0px rgba(0,0,0,0); 
-    box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 0px 0px 9px 0px rgba(0,0,0,0);
 }
 
 .juice-list h2{

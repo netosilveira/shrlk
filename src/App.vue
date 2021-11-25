@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, toRefs } from "vue";
+import { defineComponent, ref } from "vue";
 import Juice from "./types/Juice";
 import OrderTerm from "./types/OrderTerm";
 import JuiceList from "./components/JuicesList.vue";

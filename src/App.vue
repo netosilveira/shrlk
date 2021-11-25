@@ -37,7 +37,7 @@ export default defineComponent({
       {
         name: "Uva Gelada",
         flavors: ["uva", "cereja", "gelo"],
-        price: 40,
+        price: 14,
         id: 3,
       },
     ]);

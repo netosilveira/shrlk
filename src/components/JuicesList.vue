@@ -2,7 +2,7 @@
     <div class="juice-list">
         <p>Ordered by {{ order }}</p>
         <ul>
-            <li v-for="juice in juices" :key="juice.id">
+            <li v-for="juice in orderedJuices" :key="juice.id">
             <h2>{{ juice.name }}</h2>
             <p v-for="flavor in juice.flavors" :key="flavor">{{ flavor }}  </p>
             <p class="price"> R$ {{ juice.price}}</p>
@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType} from 'vue'
+import { computed, defineComponent, PropType} from 'vue'
 import Juice from '@/types/Juice'
 import OrderTerm from '@/types/OrderTerm'
 
@@ -26,6 +26,15 @@ export default defineComponent({
             required: true,
             type: String as PropType<OrderTerm>
         }
+    },
+    setup(props){
+        const orderedJuices = computed(() =>{
+            return [...props.juices].sort((a : Juice, b : Juice) => {
+                return a[props.order] > b[props.order] ? 1 : -1
+            })
+        })
+    
+    return { orderedJuices }
     }
 })
 </script>

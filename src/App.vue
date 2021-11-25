@@ -48,12 +48,7 @@ export default defineComponent({
       order.value = term;
     };
     return { juices, handleClick, order };
-  },
-  // methods: {
-  //   getJuice(name : string){
-  //     console.log(this.juices.find(juice => juice.name == name));
-  //   }
-  // }
+  }
 });
 </script>
 

@@ -1,6 +1,7 @@
 <template>
   <div class="app">
     <header>
+      <div class="title"><h2>Juices</h2></div>
       <div class="order">
         <button @click="handleClick('id')">Order by id</button>
         <button @click="handleClick('name')">Order by name</button>
@@ -24,19 +25,19 @@ export default defineComponent({
     const juices = ref<Juice[]>([
       {
         name: "Morango com kiwi",
-        flavors: ["morango", "kiwi", "limao"],
+        flavors: ["a", "b", "c"],
         price: 29,
         id: 1,
       },
       {
         name: "Abacaxi com limao",
-        flavors: ["abacaxi", "limao", "gelo"],
+        flavors: ["d", "e", "f"],
         price: 21,
         id: 2,
       },
       {
         name: "Uva Gelada",
-        flavors: ["uva", "cereja", "gelo"],
+        flavors: ["g", "h", "i"],
         price: 14,
         id: 3,
       },

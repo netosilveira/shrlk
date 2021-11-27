@@ -1,13 +1,13 @@
 <template>
     <div class="juice-list">
         <p>Ordered by {{ order }}</p>
-        <ul>
+        <transition-group name="list" tag="ul">
             <li v-for="juice in orderedJuices" :key="juice.id">
-            <h2>{{ juice.name }}</h2>
-            <p v-for="flavor in juice.flavors" :key="flavor">{{ flavor }}  </p>
-            <p class="price"> R$ {{ juice.price}}</p>
+                <h2>{{ juice.name }}</h2>
+                <p v-for="flavor in juice.flavors" :key="flavor">{{ flavor }}  </p>
+                <p class="price"> R$ {{ juice.price}}</p>
             </li>
-        </ul>
+        </transition-group>
     </div>
 </template>
 
@@ -66,5 +66,9 @@ export default defineComponent({
     font-size: 40px;
     color: green;
 
+}
+
+.list-move {
+    transition: all .75s;
 }
 </style>

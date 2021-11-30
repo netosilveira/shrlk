@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <Header/>
     <header>
       <div class="title"><h2>Juices</h2></div>
       <div class="order">
@@ -17,27 +18,29 @@ import { defineComponent, ref } from "vue";
 import Juice from "./types/Juice";
 import OrderTerm from "./types/OrderTerm";
 import JuiceList from "./components/JuicesList.vue";
+// eslint-disable-next-line
+import Header from './components/Header.vue'
 
 export default defineComponent({
   name: "App",
-  components: { JuiceList },
+  components: { JuiceList, Header },
   setup() {
     const juices = ref<Juice[]>([
       {
         name: "Morango com kiwi",
-        flavors: ["a", "b", "c"],
+        flavors: ["Morango", "Kiwi", "Ice"],
         price: 29,
         id: 1,
       },
       {
         name: "Abacaxi com limao",
-        flavors: ["d", "e", "f"],
+        flavors: ["Abacaxi", "Limao", "Ice"],
         price: 21,
         id: 2,
       },
       {
         name: "Uva Gelada",
-        flavors: ["g", "h", "i"],
+        flavors: ["Uva", "Alcool", "Ice"],
         price: 14,
         id: 3,
       },
